@@ -19,6 +19,10 @@ const modal = new tingle.modal({
     onClose: function() {
         const props = new createjs.PlayPropsConfig().set({interrupt: createjs.Sound.INTERRUPT_ANY, loop: -1, volume: 1.0});
         createjs.Sound.play("waiting_bgm",props);
+        fetch("https://0.peerjs.com").then((r)=>r.json()).then((res)=>{
+        }).catch((err)=>{
+            alert("Disable add blocker to allow the game.");
+        });
     }
 });
 document.addEventListener('DOMContentLoaded',()=>{
@@ -175,6 +179,7 @@ function makeid() {
       <h1 style="text-align: center;color: #016201;margin-top: -15px;font-family: fantasy;">Welcome To Shooter 🔫</h1>
       <p><h3 style="color: #cae6a5;">T&C:</h3>
       Plays audio during the game please allow the audio permissions and enjoy the game.
+      Turn Off any add blocker to play the game.Use chrome or edge browser only.
       </p>
       `);
    modal.open();
